@@ -74,10 +74,10 @@ export const useMenu = () => {
   const openSettings = useOpenSettings();
   const { t } = useTranslation(['common', 'setting', 'auth']);
   const { showCloudPromotion, hideDocs } = useServerConfigStore(featureFlagsSelectors);
-  const [isLogin, isLoginWithAuth, isLoginWithClerk] = useUserStore((s) => [
+  const [enableAuth, isLogin, isLoginWithAuth] = useUserStore((s) => [
+    authSelectors.enabledAuth(s),
     authSelectors.isLogin(s),
     authSelectors.isLoginWithAuth(s),
-    authSelectors.isLoginWithClerk(s),
   ]);
 
   const profile: MenuProps['items'] = [
@@ -237,7 +237,7 @@ export const useMenu = () => {
       type: 'divider',
     },
     ...(isLogin ? settings : []),
-    ...(isLoginWithClerk ? profile : []),
+    ...(!enableAuth || (enableAuth && isLoginWithAuth) ? profile : []),
     /* ↓ cloud slot ↓ */
 
     /* ↑ cloud slot ↑ */
