@@ -11,7 +11,7 @@ const Layout = ({ children }: PropsWithChildren) => {
   if (!showLLM) return notFound();
 
   return (
-    <Flexbox horizontal>
+    <Flexbox horizontal width={'100%'}>
       <ProviderMenu />
       {children}
     </Flexbox>

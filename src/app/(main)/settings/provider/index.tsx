@@ -4,13 +4,13 @@ import { Flexbox } from 'react-layout-kit';
 
 import { isCustomBranding } from '@/const/version';
 
-import ProviderList from './ProviderList';
+import ProviderGrid from './ProviderGrid';
 import Footer from './features/Footer';
 
 const Page = () => {
   return (
     <Flexbox gap={24} style={{ overflow: 'scroll' }} width={'100%'}>
-      <ProviderList />
+      <ProviderGrid />
       {!isCustomBranding && <Footer />}
     </Flexbox>
   );

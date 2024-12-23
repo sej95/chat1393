@@ -13,12 +13,6 @@ import { Center, Flexbox } from 'react-layout-kit';
 import urlJoin from 'url-join';
 
 import { useSyncSettings } from '@/app/(main)/settings/hooks/useSyncSettings';
-import {
-  KeyVaultsConfigKey,
-  LLMProviderApiTokenKey,
-  LLMProviderBaseUrlKey,
-  LLMProviderConfigKey,
-} from '@/app/(main)/settings/llm/const';
 import { FORM_STYLE } from '@/const/layoutTokens';
 import { AES_GCM_URL, BASE_PROVIDER_DOC_URL } from '@/const/url';
 import { isServerMode } from '@/const/version';
@@ -26,6 +20,12 @@ import { useUserStore } from '@/store/user';
 import { keyVaultsConfigSelectors, modelConfigSelectors } from '@/store/user/selectors';
 import { ModelProviderCard } from '@/types/llm';
 
+import {
+  KeyVaultsConfigKey,
+  LLMProviderApiTokenKey,
+  LLMProviderBaseUrlKey,
+  LLMProviderConfigKey,
+} from '../../const';
 import Checker from '../Checker';
 
 const useStyles = createStyles(({ css, prefixCls, responsive, token }) => ({
@@ -106,7 +106,6 @@ const ProviderConfig = memo<ProviderConfigProps>(
     checkModel,
     canDeactivate = true,
     checkerItem,
-    modelList,
     title,
     defaultShowBrowserRequest,
     disableBrowserRequest,
@@ -129,7 +128,7 @@ const ProviderConfig = memo<ProviderConfigProps>(
     ] = useUserStore((s) => [
       s.toggleProviderEnabled,
       s.setSettings,
-      modelConfigSelectors.isProviderEnabled(id)(s),
+      modelConfigSelectors.isProviderEnabled(id as any)(s),
       modelConfigSelectors.isProviderFetchOnClient(id)(s),
       keyVaultsConfigSelectors.isProviderEndpointNotEmpty(id)(s),
       keyVaultsConfigSelectors.isProviderApiKeyNotEmpty(id)(s),
@@ -250,7 +249,7 @@ const ProviderConfig = memo<ProviderConfigProps>(
           {canDeactivate ? (
             <Switch
               onChange={(enabled) => {
-                toggleProviderEnabled(id, enabled);
+                toggleProviderEnabled(id as any, enabled);
               }}
               value={enabled}
             />
@@ -276,10 +275,9 @@ const ProviderConfig = memo<ProviderConfigProps>(
       <Form
         className={cx(styles.form, className)}
         form={form}
+        items={[model]}
         onValuesChange={debounce(setSettings, 100)}
         variant={'pure'}
-        // items={formItems}
-        items={[model]}
         {...FORM_STYLE}
       />
     );
