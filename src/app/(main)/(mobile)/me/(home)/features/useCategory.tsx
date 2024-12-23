@@ -122,8 +122,8 @@ export const useCategory = () => {
     {
       type: 'divider',
     },
-    ...(enableAuth ? (isLoginWithAuth ? settings : []) : settingsWithoutAuth),
     ...(!enableAuth || (enableAuth && isLoginWithAuth) ? profile : []),
+    ...(enableAuth ? (isLoginWithAuth ? settings : []) : settingsWithoutAuth),
     /* ↓ cloud slot ↓ */
 
     /* ↑ cloud slot ↑ */

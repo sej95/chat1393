@@ -236,8 +236,8 @@ export const useMenu = () => {
     {
       type: 'divider',
     },
-    ...(isLogin ? settings : []),
     ...(!enableAuth || (enableAuth && isLoginWithAuth) ? profile : []),
+    ...(isLogin ? settings : []),
     /* ↓ cloud slot ↓ */
 
     /* ↑ cloud slot ↑ */
