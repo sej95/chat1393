@@ -1,11 +1,13 @@
 'use client';
 
+import { Grid } from '@lobehub/ui';
 import { Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { memo } from 'react';
 import { Center, Flexbox } from 'react-layout-kit';
 
+import { MAX_WIDTH } from '@/const/layoutTokens';
 import { useUserStore } from '@/store/user';
 import { modelProviderSelectors } from '@/store/user/selectors';
 
@@ -15,7 +17,7 @@ const useStyles = createStyles(({ css, responsive, token }) => ({
   container: css`
     display: grid;
     grid-gap: 12px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     width: 100%;
     ${responsive.mobile} {
@@ -38,7 +40,7 @@ const List = memo(() => {
   const disabledList = useUserStore(modelProviderSelectors.disabledModelProviderList, isEqual);
 
   return (
-    <Flexbox gap={24} padding={'16px 0'}>
+    <Flexbox gap={24} padding={'16px 0'} style={{ maxWidth: MAX_WIDTH }}>
       <Flexbox gap={8}>
         <Flexbox align={'center'} gap={4} horizontal>
           <Typography.Text style={{ fontSize: 16, fontWeight: 'bold' }}>
@@ -46,19 +48,19 @@ const List = memo(() => {
           </Typography.Text>
           <Center className={styles.count}>{enabledList.length}</Center>
         </Flexbox>
-        <div className={styles.container}>
+        <Grid>
           {enabledList.map((item) => (
             <Card {...item} key={item.id} />
           ))}
-        </div>
+        </Grid>
       </Flexbox>
       <Flexbox gap={8}>
         <Typography.Text style={{ fontSize: 16, fontWeight: 'bold' }}>待开启服务商</Typography.Text>
-        <div className={styles.container}>
+        <Grid>
           {disabledList.map((item) => (
             <Card {...item} key={item.id} />
           ))}
-        </div>
+        </Grid>
       </Flexbox>
     </Flexbox>
   );

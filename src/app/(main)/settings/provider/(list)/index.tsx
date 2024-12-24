@@ -10,8 +10,8 @@ import ProviderGrid from './ProviderGrid';
 const Page = () => {
   return (
     <Flexbox
+      align={'center'}
       gap={24}
-      paddingInline={16}
       style={{ overflow: 'scroll', paddingBottom: 24 }}
       width={'100%'}
     >

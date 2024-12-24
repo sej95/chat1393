@@ -1,5 +1,5 @@
 import { ProviderCombine } from '@lobehub/icons';
-import { Switch, Typography } from 'antd';
+import { Divider, Switch, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import Link from 'next/link';
 import { memo, useState } from 'react';
@@ -22,7 +22,6 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     overflow: hidden;
 
     height: 100%;
-    min-height: 100px;
 
     background: ${token.colorBgContainer};
     border-radius: 12px;
@@ -36,7 +35,7 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     }
   `,
   desc: css`
-    min-height: 22px;
+    min-height: 44px;
     margin-block-end: 0 !important;
     color: ${token.colorTextDescription};
   `,
@@ -85,20 +84,24 @@ const ProviderCard = memo<ProviderCardProps>(({ id, description, name }) => {
               title={name}
             />
           </Link>
+        </Flexbox>
+        {description && (
+          <Paragraph className={styles.desc} ellipsis={{ rows: 2, tooltip: true }}>
+            {t(`${id}.description`)}
+          </Paragraph>
+        )}
+        <Divider style={{ margin: '4px 0' }} />
+        <Flexbox horizontal justify={'space-between'} paddingBlock={'8px 0'}>
+          <div />
           <Switch
             checked={checked}
             onChange={(checked) => {
               setChecked(checked);
               toggleProviderEnabled(id as any, checked);
             }}
-            size={'small'}
+            // size={'small'}
           />
         </Flexbox>
-        {description && (
-          <Paragraph className={styles.desc} ellipsis={{ rows: 1, tooltip: true }}>
-            {t(`${id}.description`)}
-          </Paragraph>
-        )}
       </Flexbox>
     </Flexbox>
   );

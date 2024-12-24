@@ -4,6 +4,7 @@ import { Flexbox } from 'react-layout-kit';
 
 import NProgress from '@/components/NProgress';
 import { serverFeatureFlags } from '@/config/featureFlags';
+import { MAX_WIDTH } from '@/const/layoutTokens';
 
 import ProviderMenu from './ProviderMenu';
 
@@ -16,7 +17,9 @@ const Layout = ({ children }: PropsWithChildren) => {
       <NProgress />
       <Flexbox horizontal width={'100%'}>
         <ProviderMenu />
-        {children}
+        <Flexbox horizontal justify={'center'} paddingBlock={24} width={'100%'}>
+          <Flexbox style={{ maxWidth: MAX_WIDTH, width: '100%' }}>{children}</Flexbox>
+        </Flexbox>
       </Flexbox>
     </>
   );

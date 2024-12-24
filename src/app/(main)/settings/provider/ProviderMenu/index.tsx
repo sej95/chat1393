@@ -1,14 +1,17 @@
 'use client';
 
-import { Icon, SearchBar } from '@lobehub/ui';
-import { Button, Dropdown } from 'antd';
+import { ActionIcon, SearchBar } from '@lobehub/ui';
+import { Typography } from 'antd';
 import { useTheme } from 'antd-style';
-import { ArrowDownAZ, ArrowUpDown, GripVertical, PlusIcon } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import isEqual from 'fast-deep-equal';
+import { PlusIcon } from 'lucide-react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
-import { DEFAULT_MODEL_PROVIDER_LIST } from '@/config/modelProviders';
+import SearchResult from '@/app/(main)/settings/provider/ProviderMenu/SearchResult';
+import { useUserStore } from '@/store/user';
+import { modelProviderSelectors } from '@/store/user/selectors';
 
 import All from './All';
 import ProviderItem from './Item';
@@ -17,18 +20,15 @@ const ProviderMenu = () => {
   const { t } = useTranslation('modelProvider');
   const [searchKeyword, setSearchKeyword] = useState('');
   const theme = useTheme();
-  // 使用 useMemo 优化过滤性能
-  const filteredProviders = useMemo(() => {
-    const keyword = searchKeyword.toLowerCase().trim();
 
-    if (!keyword) return DEFAULT_MODEL_PROVIDER_LIST;
-
-    return DEFAULT_MODEL_PROVIDER_LIST.filter((provider) => {
-      return (
-        provider.id.toLowerCase().includes(keyword) || provider.name.toLowerCase().includes(keyword)
-      );
-    });
-  }, [searchKeyword]);
+  const enabledModelProviderList = useUserStore(
+    modelProviderSelectors.enabledModelProviderList,
+    isEqual,
+  );
+  const disabledModelProviderList = useUserStore(
+    modelProviderSelectors.disabledModelProviderList,
+    isEqual,
+  );
 
   return (
     <Flexbox style={{ minWidth: 280, overflow: 'scroll' }} width={280}>
@@ -46,49 +46,27 @@ const ProviderMenu = () => {
           type={'block'}
           value={searchKeyword}
         />
-        <Dropdown
-          menu={{
-            items: [
-              {
-                icon: <Icon icon={ArrowUpDown} />,
-                key: 'default',
-                label: t('menu.sort.default'),
-              },
-              {
-                icon: <Icon icon={ArrowDownAZ} />,
-                key: 'alphabet',
-                label: t('menu.sort.alphabet'),
-              },
-              {
-                icon: <Icon icon={GripVertical} />,
-                key: 'custom-order',
-                label: t('menu.sort.customOrder'),
-              },
-            ],
-          }}
-        >
-          <Button color={'default'} icon={<Icon icon={ArrowUpDown} />} variant={'filled'} />
-        </Dropdown>
+        {/*<ActionIcon icon={PlusIcon} title={'添加自定义服务商'} />*/}
       </Flexbox>
-      <Flexbox gap={4} padding={'0 12px'}>
-        {/* 当没有搜索关键词时才显示 All 选项 */}
-        {!searchKeyword && <All />}
-        {filteredProviders.map((item) => (
-          <ProviderItem {...item} key={item.id} />
-        ))}
-        {/* 当搜索无结果时显示提示信息 */}
-        {searchKeyword && filteredProviders.length === 0 && (
-          <Flexbox align="center" justify="center" padding={16}>
-            {t('menu.notFound')}
-          </Flexbox>
-        )}
-      </Flexbox>
-      <Flexbox
-        padding={'12px 12px'}
-        style={{ background: theme.colorBgLayout, bottom: 0, position: 'sticky', zIndex: 50 }}
-      >
-        <Button icon={<Icon icon={PlusIcon} />}>自定义服务商</Button>
-      </Flexbox>
+      {!!searchKeyword ? (
+        <SearchResult searchKeyword={searchKeyword} />
+      ) : (
+        <Flexbox gap={4} padding={'0 12px'}>
+          <All />
+          <Typography.Text style={{ fontSize: 12, marginTop: 8 }} type={'secondary'}>
+            已启用
+          </Typography.Text>
+          {enabledModelProviderList.map((item) => (
+            <ProviderItem {...item} key={item.id} />
+          ))}
+          <Typography.Text style={{ fontSize: 12, marginTop: 8 }} type={'secondary'}>
+            未启用
+          </Typography.Text>
+          {disabledModelProviderList.map((item) => (
+            <ProviderItem {...item} key={item.id} />
+          ))}
+        </Flexbox>
+      )}
     </Flexbox>
   );
 };

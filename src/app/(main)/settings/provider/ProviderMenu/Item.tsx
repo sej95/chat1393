@@ -54,7 +54,6 @@ const ProviderItem = memo<ModelProviderCard>(({ id, name }) => {
         <ProviderIcon provider={id} size={24} style={{ borderRadius: 6 }} type={'avatar'} />
         {name}
       </Flexbox>
-
       {enabled && <Badge status="success" />}
     </Link>
   );

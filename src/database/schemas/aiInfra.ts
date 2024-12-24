@@ -14,6 +14,7 @@ export const aiProviders = pgTable(
       .references(() => users.id, { onDelete: 'cascade' })
       .notNull(),
 
+    sort: integer('sort'),
     enabled: boolean('enabled'),
     checkModel: text('check_model'),
     logo: text('logo'),
