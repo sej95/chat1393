@@ -51,7 +51,7 @@ const ProviderItem = memo<ModelProviderCard>(({ id, name }) => {
       href={`/settings/provider/${id}`}
     >
       <Flexbox gap={8} horizontal>
-        <ProviderIcon provider={id} size={24} style={{ borderRadius: 6 }} />
+        <ProviderIcon provider={id} size={24} style={{ borderRadius: 6 }} type={'avatar'} />
         {name}
       </Flexbox>
 

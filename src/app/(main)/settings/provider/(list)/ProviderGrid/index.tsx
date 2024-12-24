@@ -33,7 +33,7 @@ const useStyles = createStyles(({ css, responsive, token }) => ({
 }));
 
 const List = memo(() => {
-  const { styles, theme } = useStyles();
+  const { styles } = useStyles();
   const enabledList = useUserStore(modelProviderSelectors.enabledModelProviderList, isEqual);
   const disabledList = useUserStore(modelProviderSelectors.disabledModelProviderList, isEqual);
 
