@@ -50,8 +50,12 @@ export class ServerService implements ISessionService {
     return lambdaClient.session.getGroupedSessions.query();
   }
 
-  countSessions(): Promise<number> {
-    return lambdaClient.session.countSessions.query();
+  countSessions(params?: {
+    endDate?: string;
+    range?: [string, string];
+    startDate?: string;
+  }): Promise<number> {
+    return lambdaClient.session.countSessions.query(params);
   }
 
   updateSession(id: string, data: Partial<UpdateSessionParams>): Promise<any> {

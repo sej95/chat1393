@@ -55,8 +55,8 @@ export class ClientService extends BaseClientService implements ITopicService {
     return data as unknown as Promise<ChatTopic[]>;
   }
 
-  async countTopics() {
-    return this.topicModel.count();
+  async countTopics(params?: { endDate?: string; range?: [string, string]; startDate?: string }) {
+    return this.topicModel.count(params);
   }
 
   async updateTopic(id: string, data: Partial<ChatTopic>) {

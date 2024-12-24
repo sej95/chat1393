@@ -43,11 +43,12 @@ export class ServerService implements IMessageService {
     });
   }
 
-  countMessages(): Promise<number> {
-    return lambdaClient.message.count.query();
-  }
-  countTodayMessages(): Promise<number> {
-    return lambdaClient.message.countToday.query();
+  countMessages(params?: {
+    endDate?: string;
+    range?: [string, string];
+    startDate?: string;
+  }): Promise<number> {
+    return lambdaClient.message.count.query(params);
   }
 
   updateMessageError(id: string, error: ChatMessageError): Promise<any> {
