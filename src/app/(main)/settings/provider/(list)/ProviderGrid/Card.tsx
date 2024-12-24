@@ -2,7 +2,7 @@ import { ProviderCombine } from '@lobehub/icons';
 import { Switch, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import Link from 'next/link';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flexbox } from 'react-layout-kit';
 
@@ -17,8 +17,6 @@ const useStyles = createStyles(({ css, token, isDarkMode }) => ({
     opacity: ${isDarkMode ? 0.9 : 0.4};
   `,
   container: css`
-    cursor: pointer;
-
     position: relative;
 
     overflow: hidden;
@@ -69,39 +67,39 @@ export interface ProviderCardProps extends ModelProviderCard {
 }
 
 const ProviderCard = memo<ProviderCardProps>(({ id, description, name }) => {
-  const { t } = useTranslation(['discover', 'providers']);
+  const { t } = useTranslation('providers');
   const { cx, styles, theme } = useStyles();
-
+  const [toggleProviderEnabled] = useUserStore((s) => [s.toggleProviderEnabled]);
   const enabled = useUserStore(modelProviderSelectors.isProviderEnabled(id as any));
+  const [checked, setChecked] = useState(enabled);
 
   return (
     <Flexbox className={cx(styles.container)} gap={24}>
-      <Link href={`/settings/provider/${id}`}>
-        <Flexbox gap={12} padding={16} width={'100%'}>
-          <Flexbox
-            align={'center'}
-            horizontal
-            justify={'space-between'}
-            onClick={(e) => {
-              // e.stopPropagation();
-              e.preventDefault();
-            }}
-          >
+      <Flexbox gap={12} padding={16} width={'100%'}>
+        <Flexbox align={'center'} horizontal justify={'space-between'}>
+          <Link href={`/settings/provider/${id}`}>
             <ProviderCombine
               provider={id}
               size={24}
               style={{ color: theme.colorText }}
               title={name}
             />
-            <Switch checked={enabled} size={'small'} />
-          </Flexbox>
-          {description && (
-            <Paragraph className={styles.desc} ellipsis={{ rows: 1, tooltip: true }}>
-              {t(`${id}.description`, { ns: 'providers' })}
-            </Paragraph>
-          )}
+          </Link>
+          <Switch
+            checked={checked}
+            onChange={(checked) => {
+              setChecked(checked);
+              toggleProviderEnabled(id as any, checked);
+            }}
+            size={'small'}
+          />
         </Flexbox>
-      </Link>
+        {description && (
+          <Paragraph className={styles.desc} ellipsis={{ rows: 1, tooltip: true }}>
+            {t(`${id}.description`)}
+          </Paragraph>
+        )}
+      </Flexbox>
     </Flexbox>
   );
 });

@@ -16,7 +16,7 @@ const SystemAgent = dynamic(() => import('@/app/(main)/settings/system-agent'), 
   ssr: false,
 });
 const About = dynamic(() => import('@/app/(main)/settings/about'), { loading, ssr: false });
-const LLM = dynamic(() => import('@/app/(main)/settings/provider'), { loading, ssr: false });
+const LLM = dynamic(() => import('@/app/(main)/settings/provider/(list)'), { loading, ssr: false });
 const TTS = dynamic(() => import('@/app/(main)/settings/tts'), { loading, ssr: false });
 const Agent = dynamic(() => import('@/app/(main)/settings/agent'), { loading, ssr: false });
 const Sync = dynamic(() => import('@/app/(main)/settings/sync'), { loading, ssr: false });
