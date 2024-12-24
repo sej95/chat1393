@@ -25,10 +25,7 @@ export class ServerService implements ISessionService {
     return (await this.countSessions()) === 0;
   };
 
-  createSession = async (
-    type: LobeSessionType,
-    data: Partial<LobeAgentSession>,
-  ): Promise<string> => {
+  createSession = async (type: LobeSessionType, data: Partial<LobeAgentSession>) => {
     const { config, group, meta, ...session } = data;
 
     return lambdaClient.session.createSession.mutate({
