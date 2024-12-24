@@ -31,12 +31,16 @@ export class ServerService implements ITopicService {
     return lambdaClient.topic.getAllTopics.query() as any;
   }
 
-  async countTopics(params?: {
+  countTopics(params?: {
     endDate?: string;
     range?: [string, string];
     startDate?: string;
   }): Promise<number> {
     return lambdaClient.topic.countTopics.query(params);
+  }
+
+  rankTopics() {
+    return lambdaClient.topic.rankTopics.query();
   }
 
   searchTopics(keywords: string, sessionId?: string | undefined): Promise<ChatTopic[]> {
