@@ -1,7 +1,7 @@
-import ProviderConfig from '@/app/(main)/settings/provider/components/ProviderConfig';
-import ProviderModelListSelect from '@/app/(main)/settings/provider/components/ProviderModelList';
 import { serverFeatureFlags } from '@/config/featureFlags';
 import { OpenAIProviderCard } from '@/config/modelProviders';
+
+import Index from './index';
 
 const Page = async () => {
   const { showOpenAIProxyUrl, showOpenAIApiKey } = serverFeatureFlags();
@@ -14,10 +14,7 @@ const Page = async () => {
   };
 
   return (
-    <>
-      <ProviderConfig {...card} />
-      <ProviderModelListSelect provider={card.id as any} />
-    </>
+    <Index {...card} />
   );
 };
 

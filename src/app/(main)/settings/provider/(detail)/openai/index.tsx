@@ -1,16 +1,21 @@
+'use client';
+
+import { Divider } from 'antd';
 import { memo } from 'react';
+import { Flexbox } from 'react-layout-kit';
 
 import { ModelProviderCard } from '@/types/llm';
 
+import ModelList from '../../components/ModelList';
 import ProviderConfig from '../../components/ProviderConfig';
-import ProviderModelListSelect from '../../components/ProviderModelList';
 
 const ProviderDetail = memo<ModelProviderCard>((card) => {
   return (
-    <>
+    <Flexbox gap={24} paddingBlock={8}>
       <ProviderConfig {...card} />
-      <ProviderModelListSelect provider={card.id as any} />
-    </>
+      <Divider dashed style={{ margin: 0 }} />
+      <ModelList id={card.id} {...card.modelList} />
+    </Flexbox>
   );
 });
 

@@ -101,7 +101,7 @@ export default {
     },
     fetcher: {
       clear: '清除获取的模型',
-      fetch: '获取模型列表',
+      fetch: '获取模型',
       fetching: '正在获取模型列表...',
       latestTime: '上次更新时间：{{time}}',
       noLatestTime: '暂未获取列表',

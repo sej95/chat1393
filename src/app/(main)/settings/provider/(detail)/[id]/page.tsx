@@ -1,5 +1,5 @@
 import ProviderConfig from '@/app/(main)/settings/provider/components/ProviderConfig';
-import ProviderModelListSelect from '@/app/(main)/settings/provider/components/ProviderModelList';
+import ModelList from 'src/app/(main)/settings/provider/components/ModelList';
 import Ai21Provider from '@/config/modelProviders/ai21';
 import Ai360Provider from '@/config/modelProviders/ai360';
 import AnthropicProvider from '@/config/modelProviders/anthropic';
@@ -71,7 +71,7 @@ const Page = async (props: PagePropsWithId) => {
     <>
       <ProviderConfig {...card} />
 
-      <ProviderModelListSelect provider={card.id as any} />
+      <ModelList provider={card.id as any} />
     </>
   );
 };
