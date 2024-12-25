@@ -1,5 +1,6 @@
+'use client';
+
 import { ActionIcon } from '@lobehub/ui';
-import { Select } from 'antd';
 import { css, cx } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { RotateCwIcon } from 'lucide-react';
@@ -48,7 +49,7 @@ interface CustomModelSelectProps {
 }
 
 const ProviderModelListSelect = memo<CustomModelSelectProps>(
-  ({ showModelFetcher = false, provider, showAzureDeployName, notFoundContent, placeholder }) => {
+  ({ showModelFetcher = false, provider, showAzureDeployName }) => {
     const { t } = useTranslation('common');
     const { t: transSetting } = useTranslation('setting');
     const [setModelProviderConfig, updateEnabledModels] = useUserStore((s) => [
@@ -88,32 +89,29 @@ const ProviderModelListSelect = memo<CustomModelSelectProps>(
                 />
               )}
             </div>
-            <Select<string[]>
-              allowClear
-              mode="tags"
-              notFoundContent={notFoundContent}
-              onChange={(value, options) => {
-                updateEnabledModels(provider, value, options as any[]);
-              }}
-              optionFilterProp="label"
-              optionRender={({ label, value }) => {
+
+            <Flexbox gap={8} width={'100%'}>
+              {chatModelCards.map(({ displayName, id }) => {
+                const label = displayName || id;
                 // model is in the chatModels
-                if (chatModelCards.some((c) => c.id === value))
+                if (chatModelCards.some((c) => c.id === id))
                   return (
                     <OptionRender
                       displayName={label as string}
-                      id={value as string}
+                      id={id as string}
                       isAzure={showAzureDeployName}
+                      key={id}
                       provider={provider}
                     />
                   );
 
-                if (enabledModels?.some((m) => value === m)) {
+                if (enabledModels?.some((m) => id === m)) {
                   return (
                     <OptionRender
                       displayName={label as string}
-                      id={value as string}
+                      id={id as string}
                       isAzure={showAzureDeployName}
+                      key={id}
                       provider={provider}
                       removed
                     />
@@ -122,19 +120,12 @@ const ProviderModelListSelect = memo<CustomModelSelectProps>(
 
                 // model is defined by user in client
                 return (
-                  <Flexbox align={'center'} gap={8} horizontal>
-                    {transSetting('llm.customModelCards.addNew', { id: value })}
+                  <Flexbox align={'center'} gap={8} horizontal key={id}>
+                    {transSetting('llm.customModelCards.addNew', { id: id })}
                   </Flexbox>
                 );
-              }}
-              options={chatModelCards.map((model) => ({
-                label: model.displayName || model.id,
-                value: model.id,
-              }))}
-              placeholder={placeholder}
-              popupClassName={cx(styles.popup)}
-              value={enabledModels ?? defaultEnableModel}
-            />
+              })}
+            </Flexbox>
           </div>
           {showModelFetcher && <ModelFetcher provider={provider} />}
         </Flexbox>

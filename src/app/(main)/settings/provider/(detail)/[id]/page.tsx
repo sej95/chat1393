@@ -1,3 +1,5 @@
+import ProviderConfig from '@/app/(main)/settings/provider/components/ProviderConfig';
+import ProviderModelListSelect from '@/app/(main)/settings/provider/components/ProviderModelList';
 import Ai21Provider from '@/config/modelProviders/ai21';
 import Ai360Provider from '@/config/modelProviders/ai360';
 import AnthropicProvider from '@/config/modelProviders/anthropic';
@@ -27,8 +29,6 @@ import XAIProvider from '@/config/modelProviders/xai';
 import ZeroOneProvider from '@/config/modelProviders/zeroone';
 import ZhiPuProvider from '@/config/modelProviders/zhipu';
 import { PagePropsWithId } from '@/types/next';
-
-import ProviderConfig from '../../components/ProviderConfig';
 
 const DEFAULT_MODEL_PROVIDER_LIST = [
   AnthropicProvider,
@@ -67,7 +67,13 @@ const Page = async (props: PagePropsWithId) => {
   const card = DEFAULT_MODEL_PROVIDER_LIST.find((v) => v.id === params.id);
   if (!card) return <div>not found</div>;
 
-  return <ProviderConfig {...card} />;
+  return (
+    <>
+      <ProviderConfig {...card} />
+
+      <ProviderModelListSelect provider={card.id as any} />
+    </>
+  );
 };
 
 export default Page;

@@ -30,13 +30,7 @@ const OptionRender = memo<OptionRenderProps>(({ displayName, id, provider, isAzu
   if (model?.isCustom || isAzure) return <CustomModelOption id={id} provider={provider} />;
 
   return (
-    <Flexbox
-      align={'center'}
-      gap={8}
-      horizontal
-      justify={'space-between'}
-      style={{ paddingInlineEnd: 8 }}
-    >
+    <Flexbox align={'center'} gap={8} horizontal justify={'space-between'} width={'100%'}>
       <Flexbox align={'center'} gap={8} horizontal>
         <ModelIcon model={id} size={32} />
         <Flexbox>
