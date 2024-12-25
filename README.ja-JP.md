@@ -2,7 +2,7 @@
 
 [![][image-banner]][vercel-link]
 
-# Lobe Chat
+# Iuai Chat
 
 オープンソースのモダンデザイン ChatGPT/LLMs UI / フレームワーク。<br/>
 音声合成、マルチモーダル、拡張可能な（[function call][docs-functionc-call]）プラグインシステムをサポート。<br/>
@@ -170,7 +170,7 @@ LobeChat の継続的な開発において、AI 会話サービスを提供す�
 
  <!-- PROVIDER LIST -->
 
-同時に、私たちはさらに多くのモデルサービスプロバイダーをサポートする計画を立てており、サービスプロバイダーのライブラリをさらに充実させる予定です。 LobeChat があなたのお気に入りのサービスプロバイダーをサポートすることを希望する場合は、[💬 コミュニティディスカッション](https://github.com/lobehub/lobe-chat/discussions/1284)に参加してください。
+同時に、私たちはさらに多くのモデルサービスプロバイダーをサポートする計画を立てており、サービスプロバイダーのライブラリをさらに充実させる予定です。 LobeChat があなたのお気に入りのサービスプロバイダーをサポートすることを希望する場合は、[💬 コミュニティディスカッション](https://github.com/iuaihub/iuai-chat/discussions/1284)に参加してください。
 
 <div align="right">
 
@@ -251,7 +251,7 @@ LobeChat では、異なる地域や文化的背景のユーザーのニーズ�
 
 LobeChat のプラグインエコシステムは、そのコア機能の重要な拡張であり、LobeChat アシスタントの実用性と柔軟性を大幅に向上させます。
 
-<video controls src="https://github.com/lobehub/lobe-chat/assets/28616219/f29475a3-f346-4196-a435-41a6373ab9e2" muted="false"></video>
+<video controls src="https://github.com/iuaihub/iuai-chat/assets/28616219/f29475a3-f346-4196-a435-41a6373ab9e2" muted="false"></video>
 
 プラグインを利用することで、LobeChat アシスタントはリアルタイムの情報を取得して処理することができ、ウェブ情報を検索し、ユーザーに即時かつ関連性の高いニュースを提供することができます。
 
@@ -263,12 +263,12 @@ LobeChat のプラグインエコシステムは、そのコア機能の重要�
 
 <!-- PLUGIN LIST -->
 
-| 最近追加                                                                                                                             | 説明                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [PortfolioMeta](https://lobechat.com/discover/plugin/StockData)<br/><sup>By **portfoliometa** on **2024-12-22**</sup>                | 株を分析し、包括的なリアルタイムの投資データと分析を取得します。<br/>`stock`                                                                   |
-| [Google CSE](https://lobechat.com/discover/plugin/google-cse)<br/><sup>By **vsnthdev** on **2024-12-02**</sup>                       | 公式の CSE API を通じて Google を検索します。<br/>`ウェブ` `検索`                                                                              |
-| [話す](https://lobechat.com/discover/plugin/speak)<br/><sup>By **speak** on **2024-12-02**</sup>                                     | Speak は、AI パワードの言語チューターで、他の言語で何でも言う方法を学ぶことができます。<br/>`教育` `言語`                                      |
-| [Tongyi Wanxiang 画像生成器](https://lobechat.com/discover/plugin/alps-tongyi-image)<br/><sup>By **YoungTx** on **2024-08-09**</sup> | このプラグインは、Alibaba の Tongyi Wanxiang モデルを使用して、テキストプロンプトに基づいて画像を生成します。<br/>`画像` `トンギ` `ワンシャン` |
+| 最近追加                                                                                                                             | 説明                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Google CSE](https://lobechat.com/discover/plugin/google-cse)<br/><sup>By **vsnthdev** on **2024-12-02**</sup>                       | 公式の CSE API を通じて Google を検索します。<br/>`ウェブ` `検索`                                                                                    |
+| [話す](https://lobechat.com/discover/plugin/speak)<br/><sup>By **speak** on **2024-12-02**</sup>                                     | Speak は、AI パワードの言語チューターで、他の言語で何でも言う方法を学ぶことができます。<br/>`教育` `言語`                                            |
+| [Tongyi Wanxiang 画像生成器](https://lobechat.com/discover/plugin/alps-tongyi-image)<br/><sup>By **YoungTx** on **2024-08-09**</sup> | このプラグインは、Alibaba の Tongyi Wanxiang モデルを使用して、テキストプロンプトに基づいて画像を生成します。<br/>`画像` `トンギ` `ワンシャン`       |
+| [ショッピングツール](https://lobechat.com/discover/plugin/ShoppingTools)<br/><sup>By **shoppingtools** on **2024-07-19**</sup>       | eBay や AliExpress で商品を検索し、eBay のイベントやクーポンを見つけます。迅速な例を取得します。<br/>`ショッピング` `e-bay` `ali-express` `クーポン` |
 
 > 📊 Total plugins: [<kbd>**48**</kbd>](https://lobechat.com/discover/plugins)
 
@@ -570,16 +570,16 @@ $ docker run -d -p 3210:3210 \
 
 - [lobe-chat-plugins][lobe-chat-plugins]: これは LobeChat のプラグインインデックスです。このリポジトリから index.json にアクセスし、LobeChat で利用可能なプラグインのリストをユーザに表示します。
 - [chat-plugin-template][chat-plugin-template]: これは LobeChat プラグイン開発用のプラグインテンプレートです。
-- [@lobehub/chat-plugin-sdk][chat-plugin-sdk]: LobeChat プラグイン SDK は、Lobe Chat 用の優れたチャットプラグインの作成を支援します。
+- [@lobehub/chat-plugin-sdk][chat-plugin-sdk]: LobeChat プラグイン SDK は、Iuai Chat 用の優れたチャットプラグインの作成を支援します。
 - [@lobehub/chat-plugins-gateway][chat-plugins-gateway]: LobeChat Plugins Gateway は、LobeChat プラグインのためのゲートウェイを提供するバックエンドサービスです。このサービスは Vercel を使用してデプロイされます。プライマリ API の POST /api/v1/runner は Edge Function としてデプロイされます。
 
 > \[!NOTE]
 >
 > プラグインシステムは現在大規模な開発中です。詳しくは以下の issue をご覧ください:
 >
-> - [x] [**プラグインフェイズ 1**](https://github.com/lobehub/lobe-chat/issues/73): プラグインを本体から分離し、メンテナンスのためにプラグインを独立したリポジトリに分割し、プラグインの動的ロードを実現する。
-> - [x] [**プラグインフェイズ 2**](https://github.com/lobehub/lobe-chat/issues/97): プラグイン使用の安全性と安定性、より正確な異常状態の提示、プラグインアーキテクチャの保守性、開発者フレンドリー。
-> - [x] [**プラグインフェイズ 3**](https://github.com/lobehub/lobe-chat/issues/149): より高度で包括的なカスタマイズ機能、プラグイン認証のサポート、サンプル。
+> - [x] [**プラグインフェイズ 1**](https://github.com/iuaihub/iuai-chat/issues/73): プラグインを本体から分離し、メンテナンスのためにプラグインを独立したリポジトリに分割し、プラグインの動的ロードを実現する。
+> - [x] [**プラグインフェイズ 2**](https://github.com/iuaihub/iuai-chat/issues/97): プラグイン使用の安全性と安定性、より正確な異常状態の提示、プラグインアーキテクチャの保守性、開発者フレンドリー。
+> - [x] [**プラグインフェイズ 3**](https://github.com/iuaihub/iuai-chat/issues/149): より高度で包括的なカスタマイズ機能、プラグイン認証のサポート、サンプル。
 
 <div align="right">
 
@@ -596,7 +596,7 @@ GitHub Codespaces を使ってオンライン開発ができます:
 Or clone it for local development:
 
 ```fish
-$ git clone https://github.com/lobehub/lobe-chat.git
+$ git clone https://github.com/iuaihub/iuai-chat.git
 $ cd lobe-chat
 $ pnpm install
 $ pnpm dev
@@ -626,7 +626,7 @@ $ pnpm dev
 [![][submit-agents-shield]][submit-agents-link]
 [![][submit-plugin-shield]][submit-plugin-link]
 
-<a href="https://github.com/lobehub/lobe-chat/graphs/contributors" target="_blank">
+<a href="https://github.com/iuaihub/iuai-chat/graphs/contributors" target="_blank">
   <table>
     <tr>
       <th colspan="2">
@@ -683,10 +683,10 @@ $ pnpm dev
 
 ## 🔗 その他の製品
 
-- **[🅰️ Lobe SD Theme][lobe-theme]:** Stable Diffusion WebUI のためのモダンなテーマ、絶妙なインターフェースデザイン、高度にカスタマイズ可能な UI、効率を高める機能。
-- **[⛵️ Lobe Midjourney WebUI][lobe-midjourney-webui]:** Midjourney の WebUI は、AI を活用しテキストプロンプトから豊富で多様な画像を素早く生成し、創造性を刺激して会話を盛り上げます。
-- **[🌏 Lobe i18n][lobe-i18n] :** Lobe i18n は ChatGPT を利用した国際化翻訳プロセスの自動化ツールです。大きなファイルの自動分割、増分更新、OpenAI モデル、API プロキシ、温度のカスタマイズオプションなどの機能をサポートしています。
-- **[💌 Lobe Commit][lobe-commit]:** Lobe Commit は、Langchain/ChatGPT を活用して Gitmoji ベースのコミットメッセージを生成する CLI ツールです。
+- **[🅰️ Iuai SD Theme][lobe-theme]:** Stable Diffusion WebUI のためのモダンなテーマ、絶妙なインターフェースデザイン、高度にカスタマイズ可能な UI、効率を高める機能。
+- **[⛵️ Iuai Midjourney WebUI][lobe-midjourney-webui]:** Midjourney の WebUI は、AI を活用しテキストプロンプトから豊富で多様な画像を素早く生成し、創造性を刺激して会話を盛り上げます。
+- **[🌏 Iuai i18n][lobe-i18n] :** Iuai i18n は ChatGPT を利用した国際化翻訳プロセスの自動化ツールです。大きなファイルの自動分割、増分更新、OpenAI モデル、API プロキシ、温度のカスタマイズオプションなどの機能をサポートしています。
+- **[💌 Iuai Commit][lobe-commit]:** Iuai Commit は、Langchain/ChatGPT を活用して Gitmoji ベースのコミットメッセージを生成する CLI ツールです。
 
 <div align="right">
 
@@ -737,7 +737,7 @@ This project is [Apache 2.0](./LICENSE) licensed.
 [docker-size-link]: https://hub.docker.com/r/lobehub/lobe-chat
 [docker-size-shield]: https://img.shields.io/docker/image-size/lobehub/lobe-chat?color=369eff&labelColor=black&style=flat-square
 [docs]: https://lobehub.com/docs/usage/start
-[docs-dev-guide]: https://github.com/lobehub/lobe-chat/wiki/index
+[docs-dev-guide]: https://github.com/iuaihub/iuai-chat/wiki/index
 [docs-docker]: https://lobehub.com/docs/self-hosting/platform/docker
 [docs-env-var]: https://lobehub.com/docs/self-hosting/environment-variables
 [docs-feat-agent]: https://lobehub.com/docs/usage/features/agent-market
@@ -753,7 +753,7 @@ This project is [Apache 2.0](./LICENSE) licensed.
 [docs-feat-tts]: https://lobehub.com/docs/usage/features/tts
 [docs-feat-vision]: https://lobehub.com/docs/usage/features/vision
 [docs-functionc-call]: https://lobehub.com/blog/openai-function-call
-[docs-lighthouse]: https://github.com/lobehub/lobe-chat/wiki/Lighthouse
+[docs-lighthouse]: https://github.com/iuaihub/iuai-chat/wiki/Lighthouse
 [docs-plugin-dev]: https://lobehub.com/docs/usage/plugins/development
 [docs-self-hosting]: https://lobehub.com/docs/self-hosting/start
 [docs-upstream-sync]: https://lobehub.com/docs/self-hosting/advanced/upstream-sync
@@ -765,40 +765,40 @@ This project is [Apache 2.0](./LICENSE) licensed.
 [github-action-release-shield]: https://img.shields.io/github/actions/workflow/status/lobehub/lobe-chat/release.yml?label=release&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
 [github-action-test-link]: https://github.com/actions/workflows/lobehub/lobe-chat/test.yml
 [github-action-test-shield]: https://img.shields.io/github/actions/workflow/status/lobehub/lobe-chat/test.yml?label=test&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
-[github-contributors-link]: https://github.com/lobehub/lobe-chat/graphs/contributors
+[github-contributors-link]: https://github.com/iuaihub/iuai-chat/graphs/contributors
 [github-contributors-shield]: https://img.shields.io/github/contributors/lobehub/lobe-chat?color=c4f042&labelColor=black&style=flat-square
-[github-forks-link]: https://github.com/lobehub/lobe-chat/network/members
+[github-forks-link]: https://github.com/iuaihub/iuai-chat/network/members
 [github-forks-shield]: https://img.shields.io/github/forks/lobehub/lobe-chat?color=8ae8ff&labelColor=black&style=flat-square
-[github-issues-link]: https://github.com/lobehub/lobe-chat/issues
+[github-issues-link]: https://github.com/iuaihub/iuai-chat/issues
 [github-issues-shield]: https://img.shields.io/github/issues/lobehub/lobe-chat?color=ff80eb&labelColor=black&style=flat-square
-[github-license-link]: https://github.com/lobehub/lobe-chat/blob/main/LICENSE
+[github-license-link]: https://github.com/iuaihub/iuai-chat/blob/main/LICENSE
 [github-license-shield]: https://img.shields.io/badge/license-apache%202.0-white?labelColor=black&style=flat-square
-[github-project-link]: https://github.com/lobehub/lobe-chat/projects
-[github-release-link]: https://github.com/lobehub/lobe-chat/releases
+[github-project-link]: https://github.com/iuaihub/iuai-chat/projects
+[github-release-link]: https://github.com/iuaihub/iuai-chat/releases
 [github-release-shield]: https://img.shields.io/github/v/release/lobehub/lobe-chat?color=369eff&labelColor=black&logo=github&style=flat-square
-[github-releasedate-link]: https://github.com/lobehub/lobe-chat/releases
+[github-releasedate-link]: https://github.com/iuaihub/iuai-chat/releases
 [github-releasedate-shield]: https://img.shields.io/github/release-date/lobehub/lobe-chat?labelColor=black&style=flat-square
-[github-stars-link]: https://github.com/lobehub/lobe-chat/network/stargazers
+[github-stars-link]: https://github.com/iuaihub/iuai-chat/network/stargazers
 [github-stars-shield]: https://img.shields.io/github/stars/lobehub/lobe-chat?color=ffcb47&labelColor=black&style=flat-square
 [github-trending-shield]: https://trendshift.io/api/badge/repositories/2256
 [github-trending-url]: https://trendshift.io/repositories/2256
-[image-banner]: https://github.com/lobehub/lobe-chat/assets/28616219/9f155dff-4737-429f-9cad-a70a1a860c5f
+[image-banner]: https://github.com/iuaihub/iuai-chat/assets/28616219/9f155dff-4737-429f-9cad-a70a1a860c5f
 [image-feat-agent]: https://github-production-user-asset-6210df.s3.amazonaws.com/17870709/268670869-f1ffbf66-42b6-42cf-a937-9ce1f8328514.png
-[image-feat-auth]: https://github.com/lobehub/lobe-chat/assets/17870709/8ce70e15-40df-451e-b700-66090fe5b8c2
-[image-feat-database]: https://github.com/lobehub/lobe-chat/assets/17870709/c27a0234-a4e9-40e5-8bcb-42d5ce7e40f9
-[image-feat-local]: https://github.com/lobehub/lobe-chat/assets/28616219/ca9a21bc-ea6c-4c90-bf4a-fa53b4fb2b5c
+[image-feat-auth]: https://github.com/iuaihub/iuai-chat/assets/17870709/8ce70e15-40df-451e-b700-66090fe5b8c2
+[image-feat-database]: https://github.com/iuaihub/iuai-chat/assets/17870709/c27a0234-a4e9-40e5-8bcb-42d5ce7e40f9
+[image-feat-local]: https://github.com/iuaihub/iuai-chat/assets/28616219/ca9a21bc-ea6c-4c90-bf4a-fa53b4fb2b5c
 [image-feat-mobile]: https://gw.alipayobjects.com/zos/kitchen/R441AuFS4W/mobile.webp
 [image-feat-plugin]: https://github-production-user-asset-6210df.s3.amazonaws.com/17870709/268670883-33c43a5c-a512-467e-855c-fa299548cce5.png
-[image-feat-privoder]: https://github.com/lobehub/lobe-chat/assets/28616219/b164bc54-8ba2-4c1e-b2f2-f4d7f7e7a551
+[image-feat-privoder]: https://github.com/iuaihub/iuai-chat/assets/28616219/b164bc54-8ba2-4c1e-b2f2-f4d7f7e7a551
 [image-feat-pwa]: https://gw.alipayobjects.com/zos/kitchen/69x6bllkX3/pwa.webp
 [image-feat-t2i]: https://github-production-user-asset-6210df.s3.amazonaws.com/17870709/297746445-0ff762b9-aa08-4337-afb7-12f932b6efbb.png
 [image-feat-theme]: https://gw.alipayobjects.com/zos/kitchen/pvus1lo%26Z7/darkmode.webp
 [image-feat-tts]: https://github-production-user-asset-6210df.s3.amazonaws.com/17870709/284072124-c9853d8d-f1b5-44a8-a305-45ebc0f6d19a.png
 [image-feat-vision]: https://github-production-user-asset-6210df.s3.amazonaws.com/17870709/284072129-382bdf30-e3d6-4411-b5a0-249710b8ba08.png
-[image-overview]: https://github.com/lobehub/lobe-chat/assets/17870709/56b95d48-f573-41cd-8b38-387bf88bc4bf
-[image-star]: https://github.com/lobehub/lobe-chat/assets/17870709/cb06b748-513f-47c2-8740-d876858d7855
+[image-overview]: https://github.com/iuaihub/iuai-chat/assets/17870709/56b95d48-f573-41cd-8b38-387bf88bc4bf
+[image-star]: https://github.com/iuaihub/iuai-chat/assets/17870709/cb06b748-513f-47c2-8740-d876858d7855
 [issues-link]: https://img.shields.io/github/issues/lobehub/lobe-chat.svg?style=flat
-[lobe-chat-plugins]: https://github.com/lobehub/lobe-chat-plugins
+[lobe-chat-plugins]: https://github.com/iuaihub/iuai-chat-plugins
 [lobe-commit]: https://github.com/lobehub/lobe-commit/tree/master/packages/lobe-commit
 [lobe-i18n]: https://github.com/lobehub/lobe-commit/tree/master/packages/lobe-i18n
 [lobe-icons-github]: https://github.com/lobehub/lobe-icons
@@ -816,12 +816,12 @@ This project is [Apache 2.0](./LICENSE) licensed.
 [lobe-ui-link]: https://www.npmjs.com/package/@lobehub/ui
 [lobe-ui-shield]: https://img.shields.io/npm/v/@lobehub/ui?color=369eff&labelColor=black&logo=npm&logoColor=white&style=flat-square
 [official-site]: https://lobehub.com
-[pr-welcome-link]: https://github.com/lobehub/lobe-chat/pulls
+[pr-welcome-link]: https://github.com/iuaihub/iuai-chat/pulls
 [pr-welcome-shield]: https://img.shields.io/badge/🤯_pr_welcome-%E2%86%92-ffcb47?labelColor=black&style=for-the-badge
 [profile-link]: https://github.com/lobehub
 [share-linkedin-link]: https://linkedin.com/feed
 [share-linkedin-shield]: https://img.shields.io/badge/-share%20on%20linkedin-black?labelColor=black&logo=linkedin&logoColor=white&style=flat-square
-[share-mastodon-link]: https://mastodon.social/share?text=Check%20this%20GitHub%20repository%20out%20%F0%9F%A4%AF%20LobeChat%20-%20An%20open-source,%20extensible%20(Function%20Calling),%20high-performance%20chatbot%20framework.%20It%20supports%20one-click%20free%20deployment%20of%20your%20private%20ChatGPT/LLM%20web%20application.%20https://github.com/lobehub/lobe-chat%20#chatbot%20#chatGPT%20#openAI
+[share-mastodon-link]: https://mastodon.social/share?text=Check%20this%20GitHub%20repository%20out%20%F0%9F%A4%AF%20LobeChat%20-%20An%20open-source,%20extensible%20(Function%20Calling),%20high-performance%20chatbot%20framework.%20It%20supports%20one-click%20free%20deployment%20of%20your%20private%20ChatGPT/LLM%20web%20application.%20https://github.com/iuaihub/iuai-chat%20#chatbot%20#chatGPT%20#openAI
 [share-mastodon-shield]: https://img.shields.io/badge/-share%20on%20mastodon-black?labelColor=black&logo=mastodon&logoColor=white&style=flat-square
 [share-reddit-link]: https://www.reddit.com/submit?title=Check%20this%20GitHub%20repository%20out%20%F0%9F%A4%AF%20LobeChat%20-%20An%20open-source%2C%20extensible%20%28Function%20Calling%29%2C%20high-performance%20chatbot%20framework.%20It%20supports%20one-click%20free%20deployment%20of%20your%20private%20ChatGPT%2FLLM%20web%20application.%20%23chatbot%20%23chatGPT%20%23openAI&url=https%3A%2F%2Fgithub.com%2Flobehub%2Flobe-chat
 [share-reddit-shield]: https://img.shields.io/badge/-share%20on%20reddit-black?labelColor=black&logo=reddit&logoColor=white&style=flat-square
@@ -835,9 +835,9 @@ This project is [Apache 2.0](./LICENSE) licensed.
 [share-x-shield]: https://img.shields.io/badge/-share%20on%20x-black?labelColor=black&logo=x&logoColor=white&style=flat-square
 [sponsor-link]: https://opencollective.com/lobehub 'Become ❤️ LobeHub Sponsor'
 [sponsor-shield]: https://img.shields.io/badge/-Sponsor%20LobeHub-f04f88?logo=opencollective&logoColor=white&style=flat-square
-[submit-agents-link]: https://github.com/lobehub/lobe-chat-agents
+[submit-agents-link]: https://github.com/iuaihub/iuai-chat-agents
 [submit-agents-shield]: https://img.shields.io/badge/🤖/🏪_submit_agent-%E2%86%92-c4f042?labelColor=black&style=for-the-badge
-[submit-plugin-link]: https://github.com/lobehub/lobe-chat-plugins
+[submit-plugin-link]: https://github.com/iuaihub/iuai-chat-plugins
 [submit-plugin-shield]: https://img.shields.io/badge/🧩/🏪_submit_plugin-%E2%86%92-95f3d9?labelColor=black&style=for-the-badge
 [vercel-link]: https://chat-preview.lobehub.com
 [vercel-shield]: https://img.shields.io/badge/vercel-online-55b467?labelColor=black&logo=vercel&style=flat-square
