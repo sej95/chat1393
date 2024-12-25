@@ -17,8 +17,23 @@ const Layout = ({ children }: PropsWithChildren) => {
       <NProgress />
       <Flexbox horizontal width={'100%'}>
         <ProviderMenu />
-        <Flexbox horizontal justify={'center'} paddingBlock={24} width={'100%'}>
-          <Flexbox style={{ maxWidth: MAX_WIDTH, width: '100%' }}>{children}</Flexbox>
+        <Flexbox
+          align={'center'}
+          height={'100%'}
+          paddingBlock={16}
+          style={{ overflowX: 'hidden', overflowY: 'auto' }}
+          width={'100%'}
+        >
+          <Flexbox
+            gap={40}
+            paddingInline={24}
+            style={{
+              maxWidth: MAX_WIDTH,
+            }}
+            width={'100%'}
+          >
+            {children}
+          </Flexbox>
         </Flexbox>
       </Flexbox>
     </>

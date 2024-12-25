@@ -40,11 +40,11 @@ const List = memo(() => {
   const disabledList = useUserStore(modelProviderSelectors.disabledModelProviderList, isEqual);
 
   return (
-    <Flexbox gap={24} padding={'16px 0'} style={{ maxWidth: MAX_WIDTH }}>
+    <Flexbox gap={24} paddingBlock={'0 16px'} >
       <Flexbox gap={8}>
         <Flexbox align={'center'} gap={4} horizontal>
           <Typography.Text style={{ fontSize: 16, fontWeight: 'bold' }}>
-            已开启服务商
+            已启用服务商
           </Typography.Text>
           <Center className={styles.count}>{enabledList.length}</Center>
         </Flexbox>
@@ -55,7 +55,7 @@ const List = memo(() => {
         </Grid>
       </Flexbox>
       <Flexbox gap={8}>
-        <Typography.Text style={{ fontSize: 16, fontWeight: 'bold' }}>待开启服务商</Typography.Text>
+        <Typography.Text style={{ fontSize: 16, fontWeight: 'bold' }}>未启用服务商</Typography.Text>
         <Grid>
           {disabledList.map((item) => (
             <Card {...item} key={item.id} />

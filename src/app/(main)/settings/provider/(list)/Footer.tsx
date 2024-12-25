@@ -18,6 +18,7 @@ const Footer = memo(() => {
         borderRadius: theme.borderRadiusLG,
         padding: 12,
       }}
+      width={'100%'}
     >
       <div style={{ color: theme.colorTextSecondary, fontSize: 12, textAlign: 'center' }}>
         <Trans i18nKey="llm.waitingForMore" ns={'setting'}>
