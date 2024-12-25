@@ -66,12 +66,11 @@ const ModelTitle = memo<ModelFetcherProps>(({ provider }) => {
       align={'center'}
       horizontal
       justify={'space-between'}
-      paddingBlock={'4px 0'}
+      paddingBlock={8}
       style={{ background: theme.colorBgLayout, position: 'sticky', top: -16, zIndex: 15 }}
     >
-      {' '}
       <Flexbox align={'center'} gap={0} horizontal justify={'space-between'}>
-        <Flexbox horizontal>
+        <Flexbox align={'center'} gap={8} horizontal>
           <Typography.Text style={{ fontSize: 16, fontWeight: 'bold' }}>模型列表</Typography.Text>
 
           <Typography.Text style={{ fontSize: 12 }} type={'secondary'}>
@@ -81,7 +80,7 @@ const ModelTitle = memo<ModelFetcherProps>(({ provider }) => {
                 title={
                   latestFetchTime
                     ? t('llm.fetcher.latestTime', {
-                        time: dayjs(latestFetchTime).format('YYYY-MM-DD HH:mm:ss'),
+                        time: dayjs(latestFetchTime).format('YYYY-MM-DD HH:mm'),
                       })
                     : t('llm.fetcher.noLatestTime')
                 }
@@ -110,7 +109,7 @@ const ModelTitle = memo<ModelFetcherProps>(({ provider }) => {
           >
             {isValidating ? t('llm.fetcher.fetching') : t('llm.fetcher.fetch')}
           </Button>
-          <Button size={'small'} icon={<Icon icon={PlusIcon} />}></Button>
+          <Button icon={<Icon icon={PlusIcon} />} size={'small'}></Button>
         </Space.Compact>
       </Flexbox>
     </Flexbox>

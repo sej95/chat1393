@@ -1,7 +1,6 @@
 'use client';
 
 import { Typography } from 'antd';
-import { useTheme } from 'antd-style';
 import isEqual from 'fast-deep-equal';
 import { ReactNode, memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -45,7 +44,7 @@ const ModelList = memo<ModelListProps>(({ showModelFetcher = false, id, showAzur
   console.log(chatModelCards);
   return (
     <Flexbox gap={16}>
-      <ModelTitle showModelFetcher={showModelFetcher} provider={id} />
+      <ModelTitle provider={id} showModelFetcher={showModelFetcher} />
       <ModelConfigModal provider={id} showAzureDeployName={showAzureDeployName} />
 
       {!isUserStateInit ? (

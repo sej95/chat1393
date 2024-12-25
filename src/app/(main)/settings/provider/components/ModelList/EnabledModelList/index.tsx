@@ -3,7 +3,7 @@ import isEqual from 'fast-deep-equal';
 import { useUserStore } from '@/store/user';
 import { modelProviderSelectors } from '@/store/user/selectors';
 
-import OptionRender from './ModelItem';
+import ModelItem from '../ModelItem';
 
 const EnabledModelList = ({ id, showAzureDeployName }) => {
   const chatModelCards = useUserStore(modelProviderSelectors.getModelCardsById(id), isEqual);
@@ -20,12 +20,13 @@ const EnabledModelList = ({ id, showAzureDeployName }) => {
       const label = displayName || id;
 
       return (
-        <OptionRender
+        <ModelItem
           displayName={label as string}
           id={id as string}
           isAzure={showAzureDeployName}
           key={id}
           provider={id}
+          sortable
           // removed={enabledModels?.some((m) => id === m)}
         />
       );
